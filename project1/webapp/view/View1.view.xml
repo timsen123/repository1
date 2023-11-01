@@ -1,0 +1,53 @@
+<mvc:View controllerName="project1.controller.View1"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:sfb="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:sv="sap.ui.comp.smartvariants"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f">
+	<IconTabBar id="idIconTabBar" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter id="_IDGenIconTabFilter1" text="Material" key="Material">
+				<sfb:SmartFilterBar id="smartFilterBarMaterial" entitySet="ZZHU_CDS_STOCK"> 					
+					<sfb:controlConfiguration>
+						<sfb:ControlConfiguration id="_IDControlConfigPlant" label="Plant" key="Plant" visibleInAdvancedArea="true" mandatory="true">
+						</sfb:ControlConfiguration>
+						<sfb:ControlConfiguration id="_IDControlConfigSLoc" label="Storage Location" key="Stor_loc" visibleInAdvancedArea="true">
+						</sfb:ControlConfiguration>
+						<sfb:ControlConfiguration id="_IDControlConfigMaterial" label="Material" key="Material" visibleInAdvancedArea="true">
+						</sfb:ControlConfiguration>
+					</sfb:controlConfiguration>
+				</sfb:SmartFilterBar>
+			</IconTabFilter>
+		</items>
+		<items>
+			<IconTabFilter id="_IDGenIconTabFilter2" text="Orders" key="Orders">
+				<sfb:SmartFilterBar id="smartFilterBarOrders" entitySet="ZZHU_CDS_STOCK_CDS" enableBasicSearch="true" basicSearchFieldName="Plant" persistencyKey="UniqueAndStablePersistencyKey">
+
+				</sfb:SmartFilterBar>
+			</IconTabFilter>
+		</items>
+		<items>
+			<IconTabFilter id="_IDGenIconTabFilter3" text="Batches" key="Batches">
+				<sfb:SmartFilterBar id="smartFilterBarBatches" entitySet="ZZHU_CDS_STOCK_CDS" enableBasicSearch="true" basicSearchFieldName="Plant" persistencyKey="UniqueAndStablePersistencyKey">
+					<sfb:customData>
+						<core:CustomData key="defaultFilterBarExpanded" value='{"Plant": "true"}'                        />
+						<core:CustomData key="defaultShowAllFilters" value='{"Plant": "true"}'                        />
+					</sfb:customData>
+				</sfb:SmartFilterBar>
+			</IconTabFilter>
+		</items>
+		<items>
+			<IconTabFilter id="_IDGenIconTabFilter4" text="Handling Units" key="Handling Units">
+				<sfb:SmartFilterBar id="smartFilterBarHU" entitySet="ZZHU_CDS_STOCK_CDS" enableBasicSearch="true" basicSearchFieldName="Plant" persistencyKey="UniqueAndStablePersistencyKey">
+					<sfb:customData>
+						<core:CustomData key="defaultFilterBarExpanded" value='{"Plant": "true"}'                        />
+						<core:CustomData key="defaultShowAllFilters" value='{"Plant": "true"}'                        />
+					</sfb:customData>
+				</sfb:SmartFilterBar>
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
+
+</mvc:View>

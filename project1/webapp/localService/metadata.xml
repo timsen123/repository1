@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".1/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZZHU_CDS_STOCK_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZZHU_CDS_STOCKType" sap:label="Stock Status Master View" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Stor_loc"/>
+                    <PropertyRef Name="Special_stock"/>
+                    <PropertyRef Name="Customer_stock"/>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="Production_lot"/>
+                    <PropertyRef Name="Handling_unit"/>
+                    <PropertyRef Name="Stock_status"/>
+                    <PropertyRef Name="Physical_status"/>
+                    <PropertyRef Name="Delivery"/>
+                    <PropertyRef Name="Order_"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="Stor_loc" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage Location" sap:quickinfo="Storage location"/>
+                <Property Name="Special_stock" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Special Stock" sap:quickinfo="Special Stock Indicator"/>
+                <Property Name="Customer_stock" Type="Edm.String" Nullable="false" MaxLength="16" sap:display-format="UpperCase" sap:label="Customer Stock" sap:quickinfo="Special Stock Number"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Production_lot" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Production Lot" sap:quickinfo="Batch Number"/>
+                <Property Name="Handling_unit" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Handling Unit" sap:quickinfo="External Handling Unit Identification"/>
+                <Property Name="Stock_status" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Stock Status"/>
+                <Property Name="Physical_status" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Physical Status"/>
+                <Property Name="Delivery" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Delivery"/>
+                <Property Name="Order_" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Order" sap:quickinfo="Sales and Distribution Document Number"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="UoM" sap:label="Packed Quantity" sap:quickinfo="Base Quantity Packed in the Handling Unit Item"/>
+                <Property Name="UoM" Type="Edm.String" MaxLength="3" sap:label="Unit of Measure" sap:quickinfo="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="Num_of_Units" Type="Edm.Int64" sap:label="Number of Units"/>
+                <Property Name="Num_of_Bales" Type="Edm.Int64" sap:label="Number of Bales"/>
+                <Property Name="Gross_weight" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="UoM_GW" sap:label="Total Weight" sap:quickinfo="Total Weight of Handling Unit"/>
+                <Property Name="UoM_GW" Type="Edm.String" MaxLength="3" sap:label="Gross Weight Unit of Measure" sap:quickinfo="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityContainer Name="ZZHU_CDS_STOCK_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZZHU_CDS_STOCK" EntityType="ZZHU_CDS_STOCK_CDS.ZZHU_CDS_STOCKType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://d1sci00.group.upm.com:44301/sap/opu/odata/sap/ZZHU_CDS_STOCK_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://d1sci00.group.upm.com:44301/sap/opu/odata/sap/ZZHU_CDS_STOCK_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
